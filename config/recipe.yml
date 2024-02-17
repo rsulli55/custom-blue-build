@@ -1,10 +1,10 @@
 # image will be published to ghcr.io/<user>/<name>
-name: template
+name: custom-blue-build
 # description will be included in the image's metadata
-description: This is my personal OS image.
+description: Custom universal blue image based on Sericea 
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-main
+base-image: ghcr.io/ublue-os/sericea-main
 image-version: 39 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -18,10 +18,25 @@ modules:
 
   - type: rpm-ostree
     repos:
-      # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
     install:
+      - neovim
+      - zsh
+      - starship
+      - ripgrep
+      - fzf
+      - eza
+      - btop
+      - kdeconnectd
+      - kde-connect
+      - kf5-kirigami
+      - system-config-printer
+      - firewall-config
+      - virt-manager
+      - qemu
+      - hyprland
+      - xdg-desktop-portal-hyprland
       # - micro
-      # - starship
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -35,6 +50,11 @@ modules:
       # repo-title: "Flathub (system-wide)" # Optional; this sets the remote's user-facing name in graphical frontends like GNOME Software
       install:
         - org.mozilla.firefox
+        - org.videolan.VLC
+        - org.gnome.seahorse.Application
+        - org.mozilla.firefox
+        - com.github.tchx84.Flatseal
+        - com.discordapp.Discord
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
@@ -42,6 +62,18 @@ modules:
       # Installing different branches of the same Flatpak is not supported.
       remove:
       # - org.gnome.eog
+      
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - FiraCode 
+        - Hack
+        - SourceCodePro
+        - JetBrainsMono
+        - NerdFontsSymbolsOnly
+      google-fonts:
+        - Roboto
+        - Open Sans
 
   - type: signing # this sets up the proper policy & signing files for signed images to work fully
 
