@@ -27,6 +27,7 @@ modules:
       - fzf
       - eza
       - btop
+      - helix
       - kdeconnectd
       - kde-connect
       - kf5-kirigami
@@ -55,6 +56,8 @@ modules:
         - org.mozilla.firefox
         - com.github.tchx84.Flatseal
         - com.discordapp.Discord
+        - com.obsproject.Studio
+        - com.github.xournalpp.xournalpp
         # - org.gnome.Loupe
         # - one.ablaze.floorp//lightning # This is an example of flatpak which has multiple branches in selection (flatpak//branch).
       # Flatpak runtimes are not supported (like org.winehq.Wine//stable-23.08),
