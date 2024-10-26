@@ -41,8 +41,8 @@ modules:
       - xdg-desktop-portal-hyprland
       - cosmic-desktop
       - ranger
-      - borgbackup
-      - borgmatic
+      - restic
+      - autorestic
       # - micro
     remove:
       - firefox # default firefox removed in favor of flatpak
