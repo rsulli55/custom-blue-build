@@ -17,7 +17,8 @@ modules:
       - fish
       - ripgrep
       - fzf
-      - eza
+      # eza removed in Fedora 42
+      # - eza
       - btop
       - helix
       - kdeconnectd
