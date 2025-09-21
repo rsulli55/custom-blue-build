@@ -19,6 +19,7 @@ modules:
       - fzf
       # eza removed in Fedora 42
       # - eza
+      - foot
       - btop
       - helix
       - kdeconnectd
@@ -31,7 +32,6 @@ modules:
       - ranger
       - restic
       - autorestic
-      - lightdm
       # - micro
     remove:
       - firefox # default firefox removed in favor of flatpak
